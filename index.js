@@ -1,5 +1,7 @@
 
-const inputs = document.querySelectorAll("input:not([type='submit'])");
+const inputs = document.querySelectorAll(
+    "input:not([type='submit'])"
+);
 console.log(inputs)
 
 inputs.forEach(input => {
@@ -25,7 +27,9 @@ function addErrorMessage(e) {
     error_message.setAttribute("data-id", name);
     error_message.classList.add("error-message");
 
-    if (e.target.value == "" || e.target.value == null) error_message.innerHTML = "" + e.target.getAttribute('placeholder') + "canot be empty.";
+    if (
+        e.target.value == "" || e.target.value == null
+    ) error_message.innerHTML = "" + e.target.getAttribute('placeholder') + "cannot be empty.";
     else error_message.innerHTML = "Look like this is not an" + e.target.getAttribute("placeholder") + ".";
 
     e.target.after(error_message);
@@ -35,7 +39,9 @@ function addErrorMessage(e) {
 }
 
 function removeErrorMessage(e) {
-    var elements = document.querySelectorAll("[data-id='" + e.target.getAttribute("name") + "']");
+    var elements = document.querySelectorAll(
+        "[data-id='" + e.target.getAttribute("name") + "']"
+    );
 
     elements.forEach(error_element => {
         error_element.remove();
